@@ -25,11 +25,15 @@ cd blue-green-project
 cd backend
 npm install
 ```
+<img width="684" height="199" alt="Screenshot 2026-05-31 at 3 21 39 PM" src="https://github.com/user-attachments/assets/8de2e464-75fa-47e8-a869-72fe84b563d4" />
+
 3. Create `.env` file with:
 ```
 PORT=5000
 MONGO_URI=your-mongodb-connection-string
 ```
+<img width="788" height="255" alt="Screenshot 2026-05-31 at 3 52 29 PM" src="https://github.com/user-attachments/assets/817ed580-4c3e-46a1-8af1-3968764cd69c" />
+
 4. Start backend server
 ```bash
 npm start
@@ -41,6 +45,8 @@ npm start
 cd frontend-blue
 npm install
 ```
+<img width="695" height="142" alt="Screenshot 2026-05-31 at 3 23 44 PM copy" src="https://github.com/user-attachments/assets/d7a12c0f-ae23-4fb6-88ee-11db66c1dabc" />
+
 2. Create `.env` file:
 ```
 PORT=3100
@@ -49,8 +55,10 @@ PORT=3100
 ```bash
 npm start
 ```
+<img width="710" height="141" alt="Screenshot 2026-05-31 at 4 19 26 PM" src="https://github.com/user-attachments/assets/500cff9e-3d42-45bd-a945-db6fffbdcfdf" />
 
 3. Repeat similar steps for Green Frontend (with PORT=3200)
+<img width="713" height="124" alt="Screenshot 2026-05-31 at 4 19 27 PM" src="https://github.com/user-attachments/assets/f0d61d4b-f9de-4ae5-a6d4-6e311dc93f14" />
 
 ### 3. Dockerization
 
