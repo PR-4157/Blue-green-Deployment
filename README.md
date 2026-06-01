@@ -38,6 +38,7 @@ MONGO_URI=your-mongodb-connection-string
 ```bash
 npm start
 ```
+<img width="708" height="172" alt="Screenshot 2026-05-31 at 11 09 53 PM" src="https://github.com/user-attachments/assets/8d9fabe1-c4af-4013-b920-e3c15520981c" />
 
 #### Frontend Setup
 1. Setup Blue Frontend
@@ -63,16 +64,18 @@ npm start
 ### 3. Dockerization
 
 #### Build Docker Images
-```bash
 # Build Backend Image
 docker build -t your-username/backend:v1 ./backend
 
+<img width="705" height="352" alt="Screenshot 2026-06-01 at 7 00 35 PM" src="https://github.com/user-attachments/assets/2b31c3c8-cade-481b-afce-2770e23c0d32" />
+
 # Build Blue Frontend Image
 docker build -t your-username/frontend-blue:v1 ./frontend-blue
+<img width="908" height="339" alt="Screenshot 2026-06-01 at 7 56 08 PM" src="https://github.com/user-attachments/assets/452a938c-fec9-439c-9b7e-be4884a58218" />
 
 # Build Green Frontend Image
 docker build -t your-username/frontend-green:v1 ./frontend-green
-```
+<img width="906" height="340" alt="Screenshot 2026-06-01 at 7 56 53 PM" src="https://github.com/user-attachments/assets/04502aa5-4d18-4d1c-b9a0-99708b96686b" />
 
 ### 4. Kubernetes Deployment
 
@@ -81,12 +84,15 @@ docker build -t your-username/frontend-green:v1 ./frontend-green
 ```bash
 minikube start
 ```
+<img width="701" height="339" alt="Screenshot 2026-05-31 at 11 21 35 PM" src="https://github.com/user-attachments/assets/a827f64a-8d6f-4923-bb25-aa71c7542d58" />
 
 2. Enable Required Addons
 ```bash
 minikube addons enable metrics-server
 minikube addons enable ingress
 ```
+<img width="905" height="84" alt="Screenshot 2026-06-01 at 8 05 10 PM" src="https://github.com/user-attachments/assets/51809920-a745-4406-bb40-42df5fc60350" />
+<img width="911" height="145" alt="Screenshot 2026-06-01 at 8 05 49 PM" src="https://github.com/user-attachments/assets/bf68ba12-59bb-4e85-a5a7-ddfb2b642e87" />
 
 ### 5. Create Kubernetes Manifest Files
 
@@ -105,15 +111,15 @@ Your `frontend-service.yaml` should:
 - Map ports correctly
 
 ### 6. Deploy to Minikube
-```bash
 # Apply all manifests
 kubectl apply -f k8s/
+<img width="910" height="100" alt="Screenshot 2026-06-01 at 8 08 01 PM" src="https://github.com/user-attachments/assets/c2c520a9-5c2d-4be6-aa82-cf59426a66c1" />
 
 # Verify deployments
 kubectl get deployments
 kubectl get services
 kubectl get pods
-```
+<img width="899" height="223" alt="Screenshot 2026-06-01 at 8 05 23 PM" src="https://github.com/user-attachments/assets/2ec25e06-c596-41d4-8d34-a08278bebfda" />
 
 ### 7. Blue-Green Switching
 
@@ -139,25 +145,29 @@ kubectl patch service frontend-service --type='merge' -p '{
   }
 }'
 ```
+<img width="906" height="285" alt="Screenshot 2026-06-01 at 8 12 22 PM" src="https://github.com/user-attachments/assets/05ea085e-f847-4276-90ea-a1c0297f4907" />
 
 ### 8. Verification
 - Check service endpoints
 - Verify traffic routing
 - Monitor application logs
+<img width="907" height="212" alt="Screenshot 2026-06-01 at 8 15 45 PM" src="https://github.com/user-attachments/assets/0d4ea7bb-29f8-4b46-aa1e-07eef850a03b" />
+<img width="968" height="827" alt="Screenshot 2026-06-01 at 8 15 54 PM" src="https://github.com/user-attachments/assets/dbf85d8c-b872-46ea-b9d3-995844c9408e" />
 
 ### Troubleshooting
 - `kubectl get pods` - Check pod status
 - `kubectl logs <pod-name>` - View logs
 - `kubectl describe service frontend-service` - Service details
+<img width="909" height="819" alt="Screenshot 2026-06-01 at 8 21 02 PM" src="https://github.com/user-attachments/assets/45eaca4e-c8f0-491b-8ffa-8f96e6203030" />
 
 ### Cleanup
-```bash
 # Remove deployments
 kubectl delete -f k8s/
+<img width="908" height="98" alt="Screenshot 2026-06-01 at 8 20 05 PM" src="https://github.com/user-attachments/assets/7e4f4aea-f167-4ae6-8f47-6dc24d3ac706" />
 
 # Stop Minikube
 minikube stop
-```
+<img width="906" height="59" alt="Screenshot 2026-06-01 at 8 19 38 PM" src="https://github.com/user-attachments/assets/0c7eabc5-25fc-4bcb-834e-969951907746" />
 
 ## Blue-Green Deployment Flow Chart
 
@@ -171,21 +181,10 @@ graph TD
     E -->|Rollback Option| A
 ```
 
-### Flow Explanation
-1. Blue environment is initial production
-2. Green environment deployed alongside
-3. Validate green environment 
-4. Update service selector
-5. Redirect traffic to green
-6. Blue remains as rollback option
+# Conclusion
 
-## Best Practices
-- Implement health checks
-- Use resource limits
-- Configure monitoring
-- Validate before switching
-- Maintain rollback strategy
+This project successfully demonstrated containerization, orchestration, and Blue-Green deployment using Docker and Kubernetes. The backend, frontend applications, and MongoDB database were deployed and managed within a Minikube cluster.
 
+The Blue-Green deployment strategy enabled a seamless transition between application versions by switching traffic through a Kubernetes Service selector. This approach provided zero-downtime deployment, simplified rollback, and improved application availability.
 
-## License
-This project is licensed under the MIT License
+The implementation demonstrated practical knowledge of Docker, Kubernetes Deployments, Services, health checks, and modern DevOps deployment practices.
