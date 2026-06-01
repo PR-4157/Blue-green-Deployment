@@ -170,15 +170,15 @@ minikube stop
 <img width="906" height="59" alt="Screenshot 2026-06-01 at 8 19 38 PM" src="https://github.com/user-attachments/assets/0c7eabc5-25fc-4bcb-834e-969951907746" />
 
 # Challenges Faced
-MongoDB connectivity inside containers.
-Kubernetes service-to-service communication.
-Image availability inside Minikube Docker environment.
-Configuring readiness and liveness probes correctly.
+- MongoDB connectivity inside containers.
+- Kubernetes service-to-service communication.
+- Image availability inside Minikube Docker environment.
+- Configuring readiness and liveness probes correctly.
 
 # Solutions
-Used Kubernetes Services for DNS-based communication.
-Built images directly inside Minikube.
-Verified health endpoints before deployment.
+- Used Kubernetes Services for DNS-based communication.
+- Built images directly inside Minikube.
+- Verified health endpoints before deployment.
 
 # Conclusion
 This project successfully demonstrated containerization, orchestration, and Blue-Green deployment using Docker and Kubernetes. The backend, frontend applications, and MongoDB database were deployed and managed within a Minikube cluster.
