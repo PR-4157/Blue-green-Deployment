@@ -169,20 +169,18 @@ kubectl delete -f k8s/
 minikube stop
 <img width="906" height="59" alt="Screenshot 2026-06-01 at 8 19 38 PM" src="https://github.com/user-attachments/assets/0c7eabc5-25fc-4bcb-834e-969951907746" />
 
-## Blue-Green Deployment Flow Chart
+# Challenges Faced
+MongoDB connectivity inside containers.
+Kubernetes service-to-service communication.
+Image availability inside Minikube Docker environment.
+Configuring readiness and liveness probes correctly.
 
-```mermaid
-graph TD
-    A[Blue Environment Running] -->|Deploy Green| B[Green Environment Prepared]
-    B -->|Validate Green| C{Green Ready?}
-    C -->|Yes| D[Update Service Selector]
-    C -->|No| B
-    D -->|Redirect Traffic| E[Green Now Active]
-    E -->|Rollback Option| A
-```
+# Solutions
+Used Kubernetes Services for DNS-based communication.
+Built images directly inside Minikube.
+Verified health endpoints before deployment.
 
 # Conclusion
-
 This project successfully demonstrated containerization, orchestration, and Blue-Green deployment using Docker and Kubernetes. The backend, frontend applications, and MongoDB database were deployed and managed within a Minikube cluster.
 
 The Blue-Green deployment strategy enabled a seamless transition between application versions by switching traffic through a Kubernetes Service selector. This approach provided zero-downtime deployment, simplified rollback, and improved application availability.
